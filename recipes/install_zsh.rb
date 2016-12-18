@@ -1,5 +1,4 @@
 package 'zsh'
-package 'git'
 
 git ::File.join(node['workstation']['user']['home'], '.oh-my-zsh') do
   repository 'git://github.com/robbyrussell/oh-my-zsh.git'
