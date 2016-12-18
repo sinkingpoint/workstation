@@ -1,0 +1,16 @@
+#!/bin/bash
+<% 
+    keybinding_references = []
+    (0..@keybindings.length-1).each do |i|
+      keybinding_references << "'/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom#{i}/'"
+    end
+%>
+
+echo 'Setting up Keyboard Shortcuts'
+gsettings set org.gnome.settings-daemon.plugins.media-keys custom-keybindings "[<%=keybinding_references.join(',')%>]"
+
+<% (0..@keybindings.length-1).each do |i| %>
+gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:<%=keybinding_references[i][1..-2]%> name '<%= @keybindings[i][:name] %>'
+gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:<%=keybinding_references[i][1..-2]%> command '<%= @keybindings[i][:command] %>'
+gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:<%=keybinding_references[i][1..-2]%> binding '<%= @keybindings[i][:binding] %>'
+<% end %>
