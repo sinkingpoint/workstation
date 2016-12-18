@@ -7,3 +7,4 @@ long_description 'Installs/Configures workstation'
 version '0.1.0'
 
 depends 'golang'
+depends 'rvm'
