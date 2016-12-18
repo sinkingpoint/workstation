@@ -7,6 +7,9 @@ Vagrant.configure(2) do |config|
   config.vm.provider 'virtualbox' do |v|
     v.gui = true
   end
+  
+  # Workaround until chef handles DNF correctly
+  config.vm.provision 'shell', inline: 'sudo dnf install yum -y'
 
   config.vm.provision 'chef_solo' do |chef|
     chef.add_recipe 'workstation'
