@@ -1,0 +1,1 @@
+default['workstation']['hostname'] = 'workstation'
