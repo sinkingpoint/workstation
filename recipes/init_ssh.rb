@@ -7,5 +7,6 @@ template ::File.join(node['workstation']['user']['home'], '.firstrun', 'init_ssh
   })
   user node['workstation']['user']['name']
   group node['workstation']['user']['group']
+  notifies :create, 'template[/etc/profile.d/firstrun.sh]'
   action :create
 end

@@ -9,5 +9,5 @@ include_recipe 'workstation::init_ssh'
 
 template '/etc/profile.d/firstrun.sh' do
   source 'first_run_profile.sh.erb'
-  action :create
+  action :nothing
 end
