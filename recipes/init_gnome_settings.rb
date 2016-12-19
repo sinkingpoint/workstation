@@ -29,8 +29,9 @@ end
 template ::File.join(node['workstation']['user']['home'], '.firstrun', 'init_gnome_settings.sh') do
   source 'gnome_settings.sh.erb'
   variables ({
-    keybindings: node['workstation']['gnome']['keyboard_shortcuts'],
-    extensions: node['workstation']['gnome']['extensions']
+    keybindings: node['workstation']['gnome']['keyboard_shortcuts'] || [],
+    extensions: node['workstation']['gnome']['extensions'] || [],
+    favorite_apps: node['workstation']['gnome']['favorite_apps'] || []
   })
   user node['workstation']['user']['name']
   group node['workstation']['user']['group']

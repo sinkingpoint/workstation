@@ -13,3 +13,9 @@ default['workstation']['gnome']['extensions'] = [
     destination: '/home/colin/.local/share/gnome-shell/extensions/dash-to-dock@micxgx.gmail.com'
   }
 ]
+
+default['workstation']['gnome']['favorite_apps'] = [
+  'firefox.desktop',
+  'org.gnome.Nautilus.desktop',
+  'org.gnome.Terminal.desktop'
+]
