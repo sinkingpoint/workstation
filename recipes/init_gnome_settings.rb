@@ -1,9 +1,3 @@
-directory ::File.join(node['workstation']['user']['home'], '.firstrun') do
-  user node['workstation']['user']['name']
-  group node['workstation']['user']['group']
-  action :create
-end
-
 # Installs gnome extensions
 node['workstation']['gnome']['extensions'].each do |extension|
   destination_file = ::File.join(Chef::Config[:file_cache_path], "#{extension[:name]}.zip")
