@@ -1,0 +1,4 @@
+#!/bin/bash
+
+find ~/.firstrun -type f -name "*.sh" -exec bash {} \;
+sudo rm -- /etc/profile.d/firstrun.sh

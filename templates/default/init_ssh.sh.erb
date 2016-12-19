@@ -10,6 +10,7 @@ fi
 
 read -ep '<%= server %> username: ' username
 read -esp '<%= server %> password: ' password
+echo
 pub=$(cat <%= ::File.join(@ssh_directory, server) %>.pub)
 
 curl -I -s -u $username:$password https://<%= server %>/api/v3/user/keys | grep -q 'X-GitHub-OTP: required'
