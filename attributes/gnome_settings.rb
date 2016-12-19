@@ -8,7 +8,7 @@ default['workstation']['gnome']['keyboard_shortcuts'] = [
 
 default['workstation']['gnome']['extensions'] = [
   {
-    name: 'Dash-To-Dock',
+    name: 'dash-to-dock@micxgx.gmail.com',
     source: 'https://extensions.gnome.org/review/download/6265.shell-extension.zip',
     destination: '/home/colin/.local/share/gnome-shell/extensions/dash-to-dock@micxgx.gmail.com'
   }

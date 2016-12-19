@@ -1,4 +1,6 @@
 #!/bin/bash
 
+echo 'Workstation first run. Press <ENTER>.'
+read
 find ~/.firstrun -type f -name "*.sh" -exec bash {} \;
 sudo rm -- /etc/profile.d/firstrun.sh

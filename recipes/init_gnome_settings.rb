@@ -17,7 +17,7 @@ node['workstation']['gnome']['extensions'].each do |extension|
   end
 
   bash "Unzip gnome extension #{extension['name']}" do
-    code "unzip #{destination_file} -d #{extension[:destination]}"
+    code "unzip -o #{destination_file} -d #{extension[:destination]}"
     user node['workstation']['user']['name']
     group node['workstation']['user']['group']
     action :nothing
@@ -29,7 +29,8 @@ end
 template ::File.join(node['workstation']['user']['home'], '.firstrun', 'init_gnome_settings.sh') do
   source 'gnome_settings.sh.erb'
   variables ({
-    keybindings: node['workstation']['gnome']['keyboard_shortcuts']
+    keybindings: node['workstation']['gnome']['keyboard_shortcuts'],
+    extensions: node['workstation']['gnome']['extensions']
   })
   user node['workstation']['user']['name']
   group node['workstation']['user']['group']

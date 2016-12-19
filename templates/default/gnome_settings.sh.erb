@@ -14,3 +14,12 @@ gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:<%=
 gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:<%=keybinding_references[i][1..-2]%> command '<%= @keybindings[i][:command] %>'
 gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:<%=keybinding_references[i][1..-2]%> binding '<%= @keybindings[i][:binding] %>'
 <% end %>
+
+<% 
+  extension_references = ["'background-logo@fedorahosted.org'"]
+  @extensions.each do |extension|
+    extension_references << "'#{extension[:name]}'"
+  end
+%>
+
+gsettings set org.gnome.shell enabled-extensions "[<%=extension_references.join(',')%>]"
