@@ -1,3 +1,9 @@
+#
+# Cookbook Name:: workstation
+# Recipe:: init_gnome_settings
+#
+# Copyright (c) 2016 The Authors, All Rights Reserved.
+
 # Installs gnome extensions
 node['workstation']['gnome']['extensions'].each do |extension|
   destination_file = ::File.join(Chef::Config[:file_cache_path], "#{extension[:name]}.zip")

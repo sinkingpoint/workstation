@@ -1,3 +1,9 @@
+#
+# Cookbook Name:: workstation
+# Recipe:: install_awscli
+#
+# Copyright (c) 2016 The Authors, All Rights Reserved.
+
 package 'awscli'
 
 template ::File.join(node['workstation']['user']['home'], '.firstrun', 'configure_aws.sh') do

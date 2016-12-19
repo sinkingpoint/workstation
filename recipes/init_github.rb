@@ -1,3 +1,9 @@
+#
+# Cookbook Name:: workstation
+# Recipe:: init_github
+#
+# Copyright (c) 2016 The Authors, All Rights Reserved.
+
 # We run this as a first run script because we need user input
 template ::File.join(node['workstation']['user']['home'], '.firstrun', 'init_ssh.sh') do
   source 'init_ssh.sh.erb'

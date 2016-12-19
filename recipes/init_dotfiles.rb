@@ -1,3 +1,9 @@
+#
+# Cookbook Name:: workstation
+# Recipe:: init_dotfiles
+#
+# Copyright (c) 2016 The Authors, All Rights Reserved.
+
 git ::File.join(node['workstation']['user']['home'], '.dotfiles') do
   repository node['workstation']['dotfiles']['repo']
   action :sync

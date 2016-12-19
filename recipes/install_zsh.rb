@@ -1,3 +1,9 @@
+#
+# Cookbook Name:: workstation
+# Recipe:: install_zsh
+#
+# Copyright (c) 2016 The Authors, All Rights Reserved.
+
 package 'zsh'
 
 git ::File.join(node['workstation']['user']['home'], '.oh-my-zsh') do
