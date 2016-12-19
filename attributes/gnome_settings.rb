@@ -1,3 +1,7 @@
+# The keyboard shortcuts to create
+# Name: The name of the shortcut
+# Command: The command to link the shortcut to
+# Binding: The key conbination to bind to
 default['workstation']['gnome']['keyboard_shortcuts'] = [
   {
     name: 'Terminal',
@@ -6,6 +10,10 @@ default['workstation']['gnome']['keyboard_shortcuts'] = [
   }
 ]
 
+# The gnome extensions to install
+# Name: The name of the extention from the gnome database
+# Source: Where to download the extension from
+# Destination: Where to unzip the extention to (generally `/home/colin/.local/share/gnome-shell/extensions/<name>`)
 default['workstation']['gnome']['extensions'] = [
   {
     name: 'dash-to-dock@micxgx.gmail.com',
@@ -14,6 +22,7 @@ default['workstation']['gnome']['extensions'] = [
   }
 ]
 
+# The applications to have in the launcher
 default['workstation']['gnome']['favorite_apps'] = [
   'firefox.desktop',
   'org.gnome.Nautilus.desktop',

@@ -1,3 +1,4 @@
+# Ruby versions to install for each user
 default['rvm']['user_installs'] = [
   { 
     'user'          => 'colin',
@@ -5,4 +6,5 @@ default['rvm']['user_installs'] = [
   }
 ]
 
+# The systemwide default ruby version
 default['rvm']['default_ruby'] = 'ruby-2.3.1'
