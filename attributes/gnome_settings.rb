@@ -28,3 +28,12 @@ default['workstation']['gnome']['favorite_apps'] = [
   'org.gnome.Nautilus.desktop',
   'org.gnome.Terminal.desktop'
 ]
+
+# The dconf settings to set
+default['workstation']['gnome']['settings'] = [
+  {
+    dir: 'org.gnome.nautilus.icon-view',
+    key: 'default-zoom-level',
+    value: 'small'
+  }
+]

@@ -37,7 +37,8 @@ template ::File.join(node['workstation']['user']['home'], '.firstrun', 'init_gno
   variables ({
     keybindings: node['workstation']['gnome']['keyboard_shortcuts'] || [],
     extensions: node['workstation']['gnome']['extensions'] || [],
-    favorite_apps: node['workstation']['gnome']['favorite_apps'] || []
+    favorite_apps: node['workstation']['gnome']['favorite_apps'] || [],
+    dconf_settings: node['workstation']['gnome']['settings'] || []
   })
   user node['workstation']['user']['name']
   group node['workstation']['user']['group']

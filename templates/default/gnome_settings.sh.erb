@@ -33,4 +33,6 @@ gsettings set org.gnome.shell enabled-extensions "[<%=extension_references.join(
 
 gsettings set org.gnome.shell favorite-apps "[<%=favourites_references.join(',')%>]"
 
-gsettings set org.gnome.nautilus.icon-view default-zoom-level "small"
+<% @dconf_settings.each do |setting| %>
+gsettings set <%= setting[:dir] %> <%= setting[:key] %> "<%= setting[:value] %>"
+<% end %>
