@@ -66,3 +66,9 @@ These are the applications that appear in the launcher. Basically just a list of
 
 In this attribute you can specify arbitrary dconf settings to run. I've included an example 
 which sets my nautilus icons to small, but go exploring the dconf tree for more things
+
+## Profile scripts
+
+I maintain an internal repo of profile scripts which are run on shell startup. This is specified 
+in the `init_profile.rb` file, along with the files in the repo. You should change this path or
+remove the recipe from the run list.
