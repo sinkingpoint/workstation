@@ -1,3 +1,5 @@
 #!/bin/bash
 
-aws configure
+if [ ! -f ~/.aws/config ]; then
+  aws configure
+fi
