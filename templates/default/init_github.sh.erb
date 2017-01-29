@@ -27,6 +27,9 @@ else
   echo Public key already added
 fi
 
+git config --global user.email $email
+git config --global user.name $username
+
 <% end %>
 
 echo 'Synced SSH Keys to Githubs'
