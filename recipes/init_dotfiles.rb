@@ -6,6 +6,8 @@
 
 git ::File.join(node['workstation']['user']['home'], '.dotfiles') do
   repository node['workstation']['dotfiles']['repo']
+  user node['workstation']['user']['name']
+  group node['workstation']['user']['group']
   action :sync
 end
 
