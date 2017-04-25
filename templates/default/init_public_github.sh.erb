@@ -1,0 +1,31 @@
+#!/bin/bash
+
+read -ep 'Enter your email for github.com: ' email
+
+if [ ! -f <%= ::File.join(@ssh_directory, 'github.com') %> ]; then
+  ssh-keygen -t rsa -b 4096 -C $email -f <%= ::File.join(@ssh_directory, 'github.com') %> -N ""
+  ssh-add <%= ::File.join(@ssh_directory, 'github.com') %>
+fi
+
+read -ep 'github.com username: ' username
+read -esp 'github.com password: ' password
+echo
+pub=$(cat <%= ::File.join(@ssh_directory, 'github.com') %>.pub)
+
+curl -I -s -u $username:$password https://api.github.com/user/keys | grep -q 'X-GitHub-OTP: required'
+if [ "$?" == "0" ]; then
+  read -ep 'MFA code for github.com: ' mfa
+fi
+
+curl -s -u $username:$password -H "X-GitHub-OTP: $mfa" https://api.github.com/user/keys | grep -q "$pub"
+
+if [ "$?" != "0" ]; then
+  data="{\"title\": \"$USER@$HOSTNAME\",\"key\": \"$pub\"}"
+  curl -sX POST -u $username:$password -H "X-GitHub-OTP: $mfa" https://api.github.com/user/keys -d "$data" 2&> /dev/null
+else
+  echo Public key already added
+fi
+
+git config --global user.email $email
+git config --global user.name $username
+mv ~/.gitconfig ~/.gitconfig-github.com
