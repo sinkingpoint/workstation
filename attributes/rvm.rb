@@ -1,7 +1,9 @@
+include_attribute 'workstation::user'
+
 # Ruby versions to install for each user
 default['rvm']['user_installs'] = [
   { 
-    'user'          => 'colin',
+    'user'          => default['workstation']['user']['name'],
     'rubies'        => ['ruby-2.3.1']
   }
 ]

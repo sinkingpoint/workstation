@@ -1,3 +1,5 @@
+include_attribute 'workstation::user'
+
 # The keyboard shortcuts to create
 # Name: The name of the shortcut
 # Command: The command to link the shortcut to
@@ -18,7 +20,7 @@ default['workstation']['gnome']['extensions'] = [
   {
     name: 'dash-to-dock@micxgx.gmail.com',
     source: 'https://extensions.gnome.org/review/download/6265.shell-extension.zip',
-    destination: '/home/colin/.local/share/gnome-shell/extensions/dash-to-dock@micxgx.gmail.com'
+    destination: ::File.join(default['workstation']['user']['home'], '.local/share/gnome-shell/extensions/dash-to-dock@micxgx.gmail.com')
   }
 ]
 
