@@ -5,10 +5,10 @@
 # Copyright (c) 2016 The Authors, All Rights Reserved.
 
 # We run this as a first run script because we need user input
-template ::File.join(node['workstation']['user']['home'], '.firstrun', 'init_ssh.sh') do
-  source 'init_github.sh.erb'
+template ::File.join(node['workstation']['user']['home'], '.firstrun', 'init_github_enterprise.sh') do
+  source 'init_github_enterprise.sh.erb'
   variables ({
-    git_servers: node['workstation']['ssh']['github_servers'],
+    git_servers: node['workstation']['ssh']['github_enterprise_servers'],
     ssh_directory: ::File.join(node['workstation']['user']['home'], '.ssh')
   })
   user node['workstation']['user']['name']

@@ -1,5 +1,7 @@
 #!/bin/bash
 
+<% unless @git_servers.empty? %>
+
 read -ep 'Enter your email: ' email
 
 <% @git_servers.each do |server| %>
@@ -33,3 +35,5 @@ git config --global user.name $username
 <% end %>
 
 echo 'Synced SSH Keys to Githubs'
+
+<% end %>
