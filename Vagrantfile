@@ -24,6 +24,7 @@ Vagrant.configure(2) do |config|
   config.vm.provision 'shell', inline: 'sudo dnf install yum -y'
 
   config.vm.provision 'chef_solo' do |chef|
+    chef.version = '12.6.0'
     chef.add_recipe 'workstation'
   end
 end
